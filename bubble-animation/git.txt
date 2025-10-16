@@ -1,0 +1,15 @@
+  575  source <(oc completion bash)
+  576  oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
+  577  argoPass=$(oc get secret/openshift-gitops-cluster -n openshift-gitops -o jsonpath='{.data.admin\.password}' | base64 -d)
+  578  echo $argoPass
+  579  ll
+  580  cd bubble/
+  581  ll
+  582  cd bubble-animation/
+  583  ll
+  584  cat argo-application.yaml
+  585  ll
+  586  oc apply -f argo-application.yaml
+  587  cat argo-application.yaml
+  588  history
+
